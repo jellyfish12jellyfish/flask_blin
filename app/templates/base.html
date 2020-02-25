@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+
+        .my-div-div{padding: 50px;
+                background: url(static/img/email-pattern.png);
+
+            }
+
+        @media screen (min-width: 100px) and (max-width: 1000px){
+            body > div{
+                width: 100%;
+                margin: 0px;
+                padding: 0px;}
+            }
+
+        @media screen and (min-width: 1200px) {
+        .i-lox{
+            position: absolute;
+            right: 1%;}
+        body > div > div{
+            width: 60%;
+            padding: 10px;
+            margin: auto;
+            background: #f4f4f4;
+            background-color: #fff;
+
+        }
+        body{
+            width: 60%;
+            margin: auto;
+        }
+                                                }
+        body{
+            background: url(static/img/email-pattern.png);
+        }
+
+    </style>
+
+</head>
+<body>
+<!--  -->
+
+
+<!--  -->
+
+<!--  -->
+<!--  -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+
+
+    <div>
+
+        <a class="btn btn-secondary" href=" {{ url_for('index') }}">Home</a>
+        <a class="btn btn-secondary" href="{{ url_for('posts.index') }}">Blog <span class="sr-only">(current)</span></a>
+    </div>
+    <div class="i-lox">
+        <form class="form-inline my-2 my-lg-0" method="GET">
+            <input class="form-control mr-sm-2" type="search" placeholder="Работает в blog" aria-label="Search" name="q"
+                   value="{{ request.args.get('q', '') }}">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                {% if current_user.has_role('admin') %}
+                <a href="/admin">Admin+</a>
+                {% endif %}
+            </li>
+        </ul>
+
+    </div>
+
+
+</nav>
+
+
+<nav>
+    <div>
+
+        <div class="my-div-div">
+
+            <div>
+                <h1>
+                    {% block content_title %}
+
+                    {% endblock %}
+                </h1>
+
+                {% block content %}
+
+                {% endblock %}
+            </div>
+
+            <div style="height: 1300px;">s</div>
+        </div>
+
+    </div>
+</nav>
+    <script>
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+</body>
+</html>

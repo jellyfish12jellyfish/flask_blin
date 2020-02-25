@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+  Какой-то блог
+
+{% endblock %}
+
+{% block content_title %}
+  Заголовок
+
+<style>
+  body > nav > div.i-lox > form > input{visibility: hidden;}
+  body > nav > div.i-lox > form > button{visibility: hidden;}
+  background: url(../static/img/1501235291_shapka-sayta-prazdnik-1421421.jpg);
+
+</style>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Здесь будут отображаться статьи</h5>
+        <p class="card-text">пизд*ц, вот еще шото :))))))</p>
+        <a href="/blog/post-lorem" class="btn btn-primary">узнать</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Здесь будут отображаться статьи</h5>
+        <p class="card-text">что случилось с колобком</p>
+        <a href="/blog/post-lorem" class="btn btn-primary">узнать</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block content %}
+  Some page 3
+
+{% endblock %}
+
